@@ -38,9 +38,14 @@ def main():
     
     # Step 4: Perform dynamic analysis
     
-    
+    dynamic_analysis_results = dynamic_analyzer.analyze(target_url)
     
     # Step 5: Generate vulnerability report
+
+    report = report_generator.generate_report(
+        crawled_urls, static_analysis_results, vulnerabilities, dynamic_analysis_results
+    )
+    report.save("vulnerability_report.html")
 
 if __name__ == "__main__":
     main()
