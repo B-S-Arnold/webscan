@@ -20,15 +20,21 @@ def main():
     report_generator = ReportGenerator()
     
     # Step 1: Crawl the target website
+    
     crawled_urls = crawler.crawl(target_url, max_depth)
 
     # Step 2: Perform static analysis on source code
+    
     source_code_paths = crawler.get_source_code_paths()
     static_analysis_results = static_analyzer.analyze(source_code_paths)
     
     # Step 3: Scan for vulnerabilities
     
-    
+    vulnerabilities = []
+    for url in crawled_urls:
+        response = http_client.send_request(url)
+        detected_vulnerabilities = vulnerability_scanner.scan(response)
+        vulnerabilities.extend(detected_vulnerabilities)
     
     # Step 4: Perform dynamic analysis
     
