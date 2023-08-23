@@ -115,6 +115,13 @@ Ensure that your vulnerability scanner complies with legal and ethical guideline
 - Detected vulnerabilities are stored in the vulnerabilities attribute for further analysis or reporting.
 - The get_vulnerabilities method returns the list of detected vulnerabilities.
 
+    Vulnerability
+
+- The Vulnerability class is designed to represent detected vulnerabilities.
+- Each vulnerability instance has attributes for the vulnerability's name, description, and severity level.
+- The str method provides a formatted string representation of the vulnerability, including its name, severity, and description.
+- This class can be expanded to include additional information about vulnerabilities, such as affected components, mitigation steps, and references.
+
 #### TESTS
 
     Crawler
@@ -163,6 +170,15 @@ To run the tests, you can execute the test_crawler.py file directly, or use a te
 - The test_analyze_source_code_no_vulnerabilities method tests the behavior of the analyze_source_code method when no vulnerabilities are detected. It analyzes a piece of source code and asserts that no vulnerabilities are found.
 - The test_analyze_source_code_with_vulnerabilities method tests the behavior of the analyze_source_code method when vulnerabilities are detected. It analyzes a different piece of source code and asserts that a specific vulnerability is found.
 - The test methods simulate source code analysis and verify the correctness of the StaticAnalyzer class.
+
+    Vulnerability
+
+- The unittest module is imported to utilize the testing framework for vulnerability representation functionality.
+- The TestVulnerability class is a test case that inherits from unittest.TestCase and defines test scenarios for the Vulnerability class.
+- The test_vulnerability_creation method tests the creation of a vulnerability instance. It initializes a vulnerability with specific attributes and asserts that the attributes are set correctly.
+- The test_vulnerability_string_representation method tests the str method's functionality. It creates a vulnerability instance and compares its string representation with the expected formatted string.
+- The test methods simulate vulnerability creation and string representation and verify the correctness of the Vulnerability class.
+- These descriptions provide a concise overview of the purpose and functionality of the Vulnerability class and the testing approach for the TestVulnerability test case.
 
 
 ### Main
