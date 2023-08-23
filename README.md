@@ -99,6 +99,14 @@ Ensure that your vulnerability scanner complies with legal and ethical guideline
 - The send_request method is a generic method that supports various HTTP methods. It returns the response based on the provided HTTP method.
 - The close method closes the HTTP session when the HTTPClient instance is no longer needed.
 
+    Report
+
+- The ReportGenerator class encapsulates the functionality to generate vulnerability reports.
+- The add_vulnerability method allows adding individual vulnerabilities to the report.
+- The generate_report method generates a formatted vulnerability report based on the added vulnerabilities.
+- The report includes a header indicating the type of report and a message if no vulnerabilities are found.
+- The vulnerabilities are enumerated with index numbers and corresponding vulnerability descriptions.
+
 #### TESTS
 
     Crawler
@@ -129,6 +137,15 @@ To run the tests, you can execute the test_crawler.py file directly, or use a te
 - The test_post_request method simulates an HTTP POST request using mocked responses and asserts the correctness of the response attributes.
 - The test_send_request_invalid_method method tests the behavior of the send_request method when an invalid HTTP method is provided, confirming that it raises a ValueError.
 - The test methods emulate HTTP functionality and verify the correctness of the HTTPClient class.
+
+    Report
+
+- The unittest module is imported to utilize the testing framework for report functionality.
+- The TestReportGenerator class is a test case that inherits from unittest.TestCase and defines test scenarios for the ReportGenerator class.
+- The setUp method initializes an instance of the ReportGenerator class before each test method.
+- The test_generate_report_no_vulnerabilities method tests if the generate_report method correctly generates a report when no vulnerabilities are added. It compares the generated report with the expected report.
+- The test_generate_report_with_vulnerabilities method tests if the generate_report method correctly generates a report with added vulnerabilities. It adds vulnerabilities, generates the report, and compares it with the expected report.
+- The test methods emulate report functionality and verify the correctness of the ReportGenerator class.
 
 MAIN.PY
 
