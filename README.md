@@ -107,6 +107,14 @@ Ensure that your vulnerability scanner complies with legal and ethical guideline
 - The report includes a header indicating the type of report and a message if no vulnerabilities are found.
 - The vulnerabilities are enumerated with index numbers and corresponding vulnerability descriptions.
 
+    Static Analysis
+
+- The StaticAnalyzer class is designed to perform static analysis on source code to detect potential vulnerabilities.
+- The analyze_source_code method initiates the static analysis process by taking source code as input.
+- The _find_vulnerabilities method implements specific vulnerability detection logic. In this example, it uses a regular expression to search for a potential SQL injection pattern.
+- Detected vulnerabilities are stored in the vulnerabilities attribute for further analysis or reporting.
+- The get_vulnerabilities method returns the list of detected vulnerabilities.
+
 #### TESTS
 
     Crawler
@@ -147,7 +155,19 @@ To run the tests, you can execute the test_crawler.py file directly, or use a te
 - The test_generate_report_with_vulnerabilities method tests if the generate_report method correctly generates a report with added vulnerabilities. It adds vulnerabilities, generates the report, and compares it with the expected report.
 - The test methods emulate report functionality and verify the correctness of the ReportGenerator class.
 
-MAIN.PY
+    Static Analysis
+
+- The unittest module is imported to utilize the testing framework for static analysis functionality.
+- The TestStaticAnalyzer class is a test case that inherits from unittest.TestCase and defines test scenarios for the StaticAnalyzer class.
+- The setUp method initializes an instance of the StaticAnalyzer class before each test method.
+- The test_analyze_source_code_no_vulnerabilities method tests the behavior of the analyze_source_code method when no vulnerabilities are detected. It analyzes a piece of source code and asserts that no vulnerabilities are found.
+- The test_analyze_source_code_with_vulnerabilities method tests the behavior of the analyze_source_code method when vulnerabilities are detected. It analyzes a different piece of source code and asserts that a specific vulnerability is found.
+- The test methods simulate source code analysis and verify the correctness of the StaticAnalyzer class.
+
+
+### Main
+
+    MAIN.PY
 
 1. Import the necessary modules and classes from your scanner components.
 
