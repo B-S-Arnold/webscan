@@ -91,6 +91,14 @@ Ensure that your vulnerability scanner complies with legal and ethical guideline
 - The _find_vulnerabilities method simulates identifying vulnerabilities within the source code and returns a list of detected vulnerabilities.
 - The vulnerabilities are stored in the vulnerabilities attribute for further analysis or reporting.
 
+    HTTP
+
+- The HTTPClient class encapsulates HTTP-related functionality for sending HTTP GET and POST requests.
+- The get method performs an HTTP GET request and returns the response.
+- The post method performs an HTTP POST request and returns the response.
+- The send_request method is a generic method that supports various HTTP methods. It returns the response based on the provided HTTP method.
+- The close method closes the HTTP session when the HTTPClient instance is no longer needed.
+
 #### TESTS
 
     Crawler
@@ -110,6 +118,17 @@ To run the tests, you can execute the test_crawler.py file directly, or use a te
 - The setUp method is utilized to create an instance of the DynamicAnalyzer class before each test case for isolation.
 - The test_analyze_finds_vulnerabilities method validates if the analyze method of the DynamicAnalyzer class successfully detects vulnerabilities in a simulated source code. It sets up a mock response using the _fetch_source_code method and asserts the presence of the expected vulnerability in the detected vulnerabilities list.
 - Similar to the actual dynamic analysis, the test methods emulate the dynamic analysis process and verify its correctness.
+
+    HTTP
+
+- The unittest module is imported to utilize the testing framework for HTTP functionality.
+- The TestHTTPClient class is a test case that inherits from unittest.TestCase and defines test scenarios for the HTTPClient class.
+- The setUp method initializes an instance of the HTTPClient class before each test method.
+- The tearDown method closes the HTTP session after each test method to ensure proper cleanup.
+- The test_get_request method simulates an HTTP GET request using mocked responses and asserts the correctness of the response attributes.
+- The test_post_request method simulates an HTTP POST request using mocked responses and asserts the correctness of the response attributes.
+- The test_send_request_invalid_method method tests the behavior of the send_request method when an invalid HTTP method is provided, confirming that it raises a ValueError.
+- The test methods emulate HTTP functionality and verify the correctness of the HTTPClient class.
 
 MAIN.PY
 
