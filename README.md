@@ -37,6 +37,14 @@ Optimize your scanner for performance to handle large-scale scans efficiently. T
  - Legal and Ethical Considerations:
 Ensure that your vulnerability scanner complies with legal and ethical guidelines. Obtain proper authorization from website owners before conducting scans and respect their policies regarding scanning activities.
 
+### Packages
+
+1. requests - library for making HTTP requests and handling responses
+2. beautifulsoup4 - library for parsing HTML and XML documents
+3. lxml - high-performance library for processing XML and HTML documents. Beautiful Soup can use the lxml parser for faster parsing
+4. selenium - browser automation framework that enables tasks like interacting with JavaScript-driven content and automating browser actions
+5. flask - a lightweight and flexible web framework for Python
+
 ### File Structure
 
 1. scanner/: This directory contains the main codebase for your vulnerability scanner.
@@ -63,9 +71,9 @@ Ensure that your vulnerability scanner complies with legal and ethical guideline
 
 ### Steps
 
-SCANNER
+#### SCANNER
 
-CRAWLER
+    Crawler
 
  - The Crawler class is defined to encapsulate the crawling functionality.
  - The crawl method initiates the crawling process by providing the target URL and the maximum depth to crawl.
@@ -75,9 +83,17 @@ CRAWLER
  - The _process_response method is used to perform additional processing on the response, such as extracting relevant information or parsing the source code. In this example, it collects the URLs of web pages containing source code for further analysis.
  - The get_source_code_paths method returns the list of source code paths found during the crawling process.
 
-TESTS
+    Dynamic Anyalisis
 
-CRAWLER
+- The DynamicAnalyzer class is designed to perform dynamic analysis on web page source code to detect potential vulnerabilities.
+- The analyze method orchestrates the dynamic analysis process by taking a target URL and a list of source code paths as input.
+- The _fetch_source_code method emulates fetching the source code from a URL and returns the source code content.
+- The _find_vulnerabilities method simulates identifying vulnerabilities within the source code and returns a list of detected vulnerabilities.
+- The vulnerabilities are stored in the vulnerabilities attribute for further analysis or reporting.
+
+#### TESTS
+
+    Crawler
 
  - unittest is imported to utilize the testing framework.
  - The TestCrawler class inherits from unittest.TestCase to define the test cases.
@@ -86,6 +102,14 @@ CRAWLER
  - The test_get_source_code_paths method tests the get_source_code_paths functionality. It sets the source code paths and verifies the number of paths and their correctness.
 
 To run the tests, you can execute the test_crawler.py file directly, or use a test runner like unittest's built-in test runner or external runners like pytest or nose.
+
+    Dynamic Anyalisis
+
+- The unittest module is imported to utilize the testing framework for dynamic analysis.
+- The TestDynamicAnalyzer class is a test case that inherits from unittest.TestCase and defines various test scenarios.
+- The setUp method is utilized to create an instance of the DynamicAnalyzer class before each test case for isolation.
+- The test_analyze_finds_vulnerabilities method validates if the analyze method of the DynamicAnalyzer class successfully detects vulnerabilities in a simulated source code. It sets up a mock response using the _fetch_source_code method and asserts the presence of the expected vulnerability in the detected vulnerabilities list.
+- Similar to the actual dynamic analysis, the test methods emulate the dynamic analysis process and verify its correctness.
 
 MAIN.PY
 

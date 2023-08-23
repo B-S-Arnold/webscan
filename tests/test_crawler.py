@@ -1,5 +1,5 @@
 import unittest
-from crawler import Crawler
+from scanner.crawler import Crawler
 
 
 class TestCrawler(unittest.TestCase):
@@ -38,3 +38,4 @@ class TestCrawler(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
