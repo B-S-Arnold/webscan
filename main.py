@@ -1,5 +1,5 @@
 from scanner.crawler import Crawler
-from scanner.http import HttpClient
+from scanner.http import HTTPClient
 from scanner.vulnerability import VulnerabilityScanner
 from scanner.static_analysis import StaticAnalyzer
 from scanner.dynamic_analysis import DynamicAnalyzer
@@ -13,7 +13,7 @@ def main():
     
     # Initialize scanner components
     crawler = Crawler()
-    http_client = HttpClient()
+    http_client = HTTPClient()
     vulnerability_scanner = VulnerabilityScanner()
     static_analyzer = StaticAnalyzer()
     dynamic_analyzer = DynamicAnalyzer()
