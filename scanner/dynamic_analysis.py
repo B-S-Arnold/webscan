@@ -12,10 +12,17 @@ class DynamicAnalyzer:
             vulnerabilities = self._find_vulnerabilities(source_code)
             if vulnerabilities:
                 self.vulnerabilities.extend(vulnerabilities)
+            
+            print("Source CODE 2222!!!")
+            print(source_code)
 
     def _fetch_source_code(self, url):
         response = requests.get(url)
         source_code = response.text
+        
+        print("Source CODE!!!")
+        print(source_code)
+        
         return source_code
 
     def _find_vulnerabilities(self, source_code):
